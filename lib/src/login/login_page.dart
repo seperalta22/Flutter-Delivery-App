@@ -14,23 +14,59 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Login'),
-      ),
-      body: Stack(
+        body: Container(
+      width: double.infinity,
+      child: Column(
         children: [
-          Container(
-            width: 150,
-            height: 150,
-            decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(100)),
-                color: MyColors.primaryColor),
+          imageBanner(),
+          TextField(
+            decoration: InputDecoration(
+                hintText: 'Email',
+                labelText: 'Email',
+                suffixIcon: const Icon(Icons.email),
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10))),
           ),
-          Container(
-              margin: const EdgeInsets.only(top: 60, left: 40),
-              child: const Text('Login Page')),
+          TextField(
+            decoration: InputDecoration(
+                hintText: 'Password',
+                labelText: 'Password',
+                suffixIcon: const Icon(Icons.lock),
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10))),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            style: ElevatedButton.styleFrom(
+                backgroundColor: MyColors.primaryColor,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 50, vertical: 15)),
+            child: const Text('Sign in'),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text('You don\'t have an account?'),
+              TextButton(
+                  onPressed: () {},
+                  child: const Text('Sign up',
+                      style: TextStyle(
+                          color: MyColors.primaryColor,
+                          fontWeight: FontWeight.bold)))
+            ],
+          )
         ],
       ),
+    ));
+  }
+
+  Widget imageBanner() {
+    return Image.asset(
+      'assets/img/delivery.png',
+      height: 200,
+      width: 200,
     );
   }
 }
