@@ -1,5 +1,6 @@
 import 'package:deliveryapp/src/utils/my_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -9,18 +10,16 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  TextEditingController _emailController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Container(
+        body: SizedBox(
       width: double.infinity,
       child: Stack(children: [
-        Positioned(child: _circleLogin(), top: -150, left: -80),
+        Positioned(top: -150, left: -80, child: _circleLogin()),
         Column(
           children: [
-            _imageBanner(),
+            _lottieAnimation(),
             _textFieldEmail(),
             const SizedBox(height: 10),
             _textFieldPassword(),
@@ -71,9 +70,14 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
+  Widget _lottieAnimation() {
+    return Lottie.asset('assets/json/delivery.json',
+        width: 600, height: 400, fit: BoxFit.fitWidth);
+  }
+
   Widget _textFieldEmail() {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+      margin: const EdgeInsets.symmetric(horizontal: 60, vertical: 10),
       decoration: BoxDecoration(
         color: MyColors.primaryColorOpacity,
         borderRadius: BorderRadius.circular(10),
@@ -93,7 +97,7 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget _textFieldPassword() {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+      margin: const EdgeInsets.symmetric(horizontal: 60, vertical: 10),
       decoration: BoxDecoration(
         color: MyColors.primaryColorOpacity,
         borderRadius: BorderRadius.circular(10),
@@ -115,7 +119,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget _buttonLogin() {
     return Container(
       width: double.infinity,
-      margin: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+      margin: const EdgeInsets.symmetric(horizontal: 60, vertical: 20),
       child: ElevatedButton(
         onPressed: () {},
         style: ElevatedButton.styleFrom(
