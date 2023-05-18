@@ -23,6 +23,8 @@ class _MyAppState extends State<MyApp> {
         routes: {
           'login': (context) => const LoginPage(),
         },
-        theme: ThemeData(primaryColor: MyColors.primaryColor));
+        theme: ThemeData(
+            primaryColor: MyColors.primaryColor // Change primary color
+            ));
   }
 }

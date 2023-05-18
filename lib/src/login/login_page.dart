@@ -51,23 +51,9 @@ class _LoginPageState extends State<LoginPage> {
           child: Text(
             'Login',
             style: TextStyle(
-              color: Colors.white,
-              fontSize: 35,
-            ),
+                color: Colors.white, fontSize: 35, fontFamily: "NimbusSans"),
           ),
         ));
-  }
-
-  Widget _imageBanner() {
-    return Container(
-      margin: EdgeInsets.only(
-          top: 100, bottom: MediaQuery.of(context).size.height * 0.09),
-      child: Image.asset(
-        'assets/img/delivery.png',
-        height: 200,
-        width: 200,
-      ),
-    );
   }
 
   Widget _lottieAnimation() {
